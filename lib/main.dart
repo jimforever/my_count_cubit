@@ -44,7 +44,11 @@ class MyHomePage extends StatelessWidget {
     int count = 0;
     // TODO: implement build
     return Scaffold(
-      body: Center(child: Text('${BlocProvider.of<CounterCubit>(context,listen: true).state.counter}', style: TextStyle(fontSize: 52.0),),),
+      body: BlocBuilder<CounterCubit, CounterState>(
+        builder: (context, state) {
+          return Center(child: Text('${state.counter}', style: TextStyle(fontSize: 52.0),),);
+        },
+      ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
