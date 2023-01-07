@@ -43,10 +43,9 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      body: BlocBuilder<CounterCubit, CounterState>(
-        buildWhen: (_,state) => state is CounterSuccess,
+      body: BlocBuilder<CounterCubit, int>(
         builder: (context, state) {
-          return Center(child: Text((state is CounterSuccess ? '${state.count}' : '0'), style: TextStyle(fontSize: 52.0),),);
+          return Center(child: Text('$state', style: TextStyle(fontSize: 52.0),),);
         },
       ),
       floatingActionButton: Row(
