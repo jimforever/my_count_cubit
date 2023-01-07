@@ -1,14 +1,16 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 part 'counter_state.dart';
 
 class CounterCubit extends Cubit<CounterState> {
-  CounterCubit() : super(CounterState.initial());
+  int count = 0;
+  CounterCubit() : super(CounterInitial());
 
   void increment(){
-    emit(state.copyWith(counter: state.counter + 1));
+    emit(CounterSuccess(++count));
   }
 
   void decrement(){
-    emit(state.copyWith(counter: state.counter - 1));
+    emit(CounterSuccess(--count));
   }
 }

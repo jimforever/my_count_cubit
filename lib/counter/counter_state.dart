@@ -1,25 +1,16 @@
 part of 'counter_cubit.dart';
 
-class CounterState {
-  final int counter;
+@immutable
+abstract class CounterState {}
 
-  CounterState({required this.counter});
+class CounterInitial extends CounterState {}
 
-  factory CounterState.initial(){
-    return CounterState(counter: 0);
-  }
+class CounterSuccess extends CounterState {
+  final int count;
 
-  @override
-  List<Object> get props => [counter];
+  CounterSuccess(this.count);
 
   @override
-  String toString() {
-    return 'CounterState{counter: $counter}';
-  }
-
-  CounterState copyWith({int? counter}){
-    return CounterState(counter: counter ?? this.counter);
-  }
-
-
+  List<Object> get props => [count];
 }
+
